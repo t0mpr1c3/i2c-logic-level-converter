@@ -1,0 +1,76 @@
+<div>
+A very <a href="http://smokedprojects.blogspot.com/search/label/Easy">easy</a>&nbsp;logic level converter to translate I2C signals from, say, a 5&nbsp;V Arduino to a 3.3&nbsp;V slave device.</div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-nyVYA_9f9Zs/UiIejyXF9yI/AAAAAAAABcM/MZR6O9w5E-4/s1600/i2c-converter.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="221" src="http://2.bp.blogspot.com/-nyVYA_9f9Zs/UiIejyXF9yI/AAAAAAAABcM/MZR6O9w5E-4/s400/i2c-converter.jpg" width="400" /></a></div>
+<br />
+<!--more--><br />
+<h3>
+I2C logic level converter</h3>
+<br />
+<div>
+The Arduino and Basic Stamp are 5&nbsp;V devices, but many modern devices — sensors, displays, flash cards and the like — are 3.3&nbsp;V only and require level conversion to protect them from higher voltage signals.</div>
+<br />
+<div>
+Level shifting for the&nbsp;I2C communication protocol&nbsp;uses a FET design&nbsp;following the <a href="http://www.adafruit.com/datasheets/AN10441.pdf">NXP application note</a>. This board&nbsp;should work with high voltages up to 10&nbsp;V and low voltages down to 1.8&nbsp;V.</div>
+<br />
+<div>
+For ease of prototyping I used&nbsp;<a href="http://www.fairchildsemi.com/ds/2N/2N7000.pdf">2N7000</a>&nbsp;N-channel MOSFETs on strip board, and tried 2.2 K pull up resistors in the hope that they would allow slightly transfer rates than 10&nbsp;K resistors used in the equivalent&nbsp;<a href="https://www.adafruit.com/products/757">Adafruit PCB</a>.</div>
+<br />
+<br />
+<h3>
+Layout</h3>
+<br />
+<div>
+An&nbsp;<a href="http://www.3lectronics.com/stripboard-schematic-layout-editor/stripboard-layout-and-schematic-free-editor.svg">online stripboard editor</a>&nbsp;was used to create the schematic and layout, which are documented&nbsp;in a&nbsp;<a href="https://github.com/t0mpr1c3/i2c-logic-level-converter">github repository</a>.</div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-pzm6yPuDXro/UiIp4_i5QxI/AAAAAAAABdg/krs8dg78Aw4/s1600/i2c-converter-schematic-alt.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="152" src="http://1.bp.blogspot.com/-pzm6yPuDXro/UiIp4_i5QxI/AAAAAAAABdg/krs8dg78Aw4/s400/i2c-converter-schematic-alt.png" width="400" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-cZ8JYTM3deE/UiIod7eddMI/AAAAAAAABdE/YZOJWZT9yKw/s1600/i2c-converter-layout.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="197" src="http://3.bp.blogspot.com/-cZ8JYTM3deE/UiIod7eddMI/AAAAAAAABdE/YZOJWZT9yKw/s400/i2c-converter-layout.png" width="400" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-nyVYA_9f9Zs/UiIejyXF9yI/AAAAAAAABcM/MZR6O9w5E-4/s1600/i2c-converter.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="221" src="http://2.bp.blogspot.com/-nyVYA_9f9Zs/UiIejyXF9yI/AAAAAAAABcM/MZR6O9w5E-4/s400/i2c-converter.jpg" width="400" /></a></div>
+<br />
+<div>
+The design fits on 6 strips x 8 holes. I used a slightly wider board to make room for colour coded loops of wire next to the right angle pin headers. The SDA and SCL lines are marked brown and grey. The low voltage can be supplied on either side of the board (blue line).</div>
+<br />
+<div>
+The grounds on the two devices also need to be joined. This can be accomplished on the board with a simple change to the design.</div>
+<br />
+<br />
+<h3>
+Demo</h3>
+<br />
+Here, the 5&nbsp;V SCL and SDA pins on an&nbsp;<a href="http://amzn.to/12aYA6Z">Arduino Uno</a>&nbsp;are connected to the 3.3&nbsp;V I2C lines from a <a href="http://smokedprojects.blogspot.com/2013/08/i2c-led-display-from-hacked-voltmeter.html">hacked voltmeter</a> LED display. The converter works. :)<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-zFoIrsRUGl4/UiKg-Bs0QXI/AAAAAAAABdw/j_e9T5HWmVk/s1600/i2c-converter-demo.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="237" src="http://3.bp.blogspot.com/-zFoIrsRUGl4/UiKg-Bs0QXI/AAAAAAAABdw/j_e9T5HWmVk/s320/i2c-converter-demo.jpg" width="320" /></a></div>
+<br />
+<br />
+<h3>
+Materials</h3>
+<br />
+<ul>
+<li>2x <a href="http://www.taydaelectronics.com/2n7000-mosfet-n-channel-60v-0-2a.html">2N7000</a></li>
+<li>4x <a href="http://www.taydaelectronics.com/10-x-resistor-2-2k-ohm-1-4w-5-carbon-film-pkg-of-10.html">2.2 KΩ resistor</a></li>
+<li><a href="http://www.taydaelectronics.com/connectors-sockets/pin-headers/40-pin-2-54-mm-angle-single-row-pin-header.html">0.1" pitch right angle header</a></li>
+<li>small piece of&nbsp;<a href="http://www.taydaelectronics.com/hardware/prototyping-boards/small-stripboard-94x53mm-copper.html">stripboard</a></li>
+<li>hook up wire</li>
+<li>solder</li>
+<li><a href="http://amzn.to/12nQX9m">soldering iron</a></li>
+</ul>
+<br />
+<br />
+<h3>
+Resources</h3>
+<br />
+<ul>
+<li><a href="http://www.adafruit.com/datasheets/AN10441.pdf">NXP application note</a></li>
+<li>Datasheet for&nbsp;<a href="http://www.fairchildsemi.com/ds/2N/2N7000.pdf">2N7000</a>&nbsp;N-channel MOSFET</li>
+<li><a href="http://www.3lectronics.com/stripboard-schematic-layout-editor/stripboard-layout-and-schematic-free-editor.svg">free online stripboard editor</a></li>
+<li><a href="https://github.com/t0mpr1c3/i2c-logic-level-converter">github repository</a></li>
+</ul>
